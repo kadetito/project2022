@@ -10,7 +10,9 @@ export const ContentLayout = (props: { children: any; className: any }) => {
     <div className="container-fluid ">
       <Header />
       <div className="row ">
-        <div className={classNames("col-12 ", { [className]: className })}>
+        <div
+          className={classNames("col-12 p-0 m-0", { [className]: className })}
+        >
           {children}
         </div>
       </div>

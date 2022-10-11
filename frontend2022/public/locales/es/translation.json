@@ -1,0 +1,27 @@
+{
+    
+  "Header": {
+    "txt": "Municipios de Catalunya",
+    "description": "Versión 2.1 Beta"
+  },
+
+  "Login": {
+    "txt": "Login",    "description": "Lorem ipsum"
+  },
+
+  "Footer": {
+    "txt": "Pie de página",    "description": "Lorem ipsum"
+  },
+  "Menu1": {
+    "txt": "Cómo instalar"
+},
+"SignOut": {
+  "txt": "Salir"
+},
+  "date": "Hoy es {{date, DATE_HUGE}}",
+
+  "interpolation_pluralization": {
+    "txt_one": "There is only one Article on this",
+    "txt_other": "There are {{count}} Articles on this"
+  }
+}

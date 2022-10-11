@@ -20,7 +20,10 @@ export const useAuthStore = () => {
       const timeDate: any = new Date().getTime();
       localStorage.setItem("token", data.token);
       localStorage.setItem("token-init-time", timeDate.toString());
-      dispatch(onLogin({ name: data.name, uid: data.uid }));
+      localStorage.setItem("avatar", data.avatar);
+      dispatch(
+        onLogin({ name: data.name, uid: data.uid, avatar: data.avatar })
+      );
     } catch (error) {
       console.log({ error });
       dispatch(onLogout("credenciales incorrectas"));
@@ -39,7 +42,9 @@ export const useAuthStore = () => {
       const timeDate: any = new Date().getTime();
       localStorage.setItem("token", data.token);
       localStorage.setItem("token-init-time", timeDate.toString());
-      dispatch(onLogin({ name: data.name, uid: data.uid }));
+      dispatch(
+        onLogin({ name: data.name, uid: data.uid, avatar: data.avatar })
+      );
     } catch (error) {
       localStorage.clear();
       dispatch(onLogout(""));

@@ -1,22 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { WritableDraft } from "immer/dist/internal";
 
-const tempEvent = {
-  _id: new Date().getTime(),
-  title: "cumpleaños",
-  notes: "comrpar pan",
-};
+import { Cities } from "../../../interfaces";
 
+const emptyEvent: Cities = {};
 export const contentSlice = createSlice({
   name: "content",
+
   initialState: {
-    events: [tempEvent],
+    isLoadingEvents: true,
+    events: [emptyEvent],
     activeEvent: null,
   },
   reducers: {
     onSetActiveEvent: (state, { payload }) => {
       state.activeEvent = payload;
     },
+    onLoadEvents: (state, { payload = [] }) => {
+      state.isLoadingEvents = false;
+      payload.forEach((event: WritableDraft<Cities>) => {
+        const exists = state.events.some(
+          (dbEvent: any) => dbEvent.id === event.id
+        );
+        if (!exists) {
+          state.events.push(event);
+        }
+      });
+    },
   },
 });
 
-export const { onSetActiveEvent } = contentSlice.actions;
+export const { onSetActiveEvent, onLoadEvents } = contentSlice.actions;

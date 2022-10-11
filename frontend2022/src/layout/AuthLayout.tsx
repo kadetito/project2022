@@ -4,7 +4,7 @@ export const AuthLayout = (props: { children: any; className: any }) => {
   const { children, className } = props;
 
   return (
-    <div className="row ">
+    <div className="row m-3">
       <div className="col-12">
         <div className="container">
           <div

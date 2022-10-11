@@ -1,4 +1,25 @@
-.mun__headerglobal{
+.mun__headerglobal {
+  background-color: #222a44;
+  color: #ffffff;
+}
+.mun__avatar {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
 
-    background-color: #222a44;color:#ffffff
+.mun__dropdownbutton {
+  background-color: transparent;
+  color: #ffffff;
+  border: 0px;
+}
+.mun__dropdownbutton:hover {
+  background-color: transparent;
+}
+.mun__dropdownbutton:active {
+  background-color: transparent;
+}
+.mun__dropdownbutton:visited {
+  background-color: transparent;
 }
