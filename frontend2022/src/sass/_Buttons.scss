@@ -13,6 +13,24 @@
   border: 0px;
   outline: 0;
 }
+
+.mun__modalclosebutton {
+  background-color: transparent;
+  border: 0px;
+  color: #333333;
+  outline: 0;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+}
+.mun__modalclosebutton:hover {
+  background-color: transparent;
+  color: #666666;
+  border: 0px;
+  outline: 0;
+}
+
 .mun__langbutton {
   background-color: transparent;
   border: 0px;
@@ -31,4 +49,29 @@
   color: #86e9ec;
   border: 0px;
   outline: 0;
+}
+
+.mun__toolbuttonfloating {
+  .mun__mas {
+    background-color: #b7d3ed;
+  }
+  .mun__menos {
+    margin-left: 5px;
+    background-color: #b7d3ed;
+  }
+
+  & .btn {
+    font-weight: bold;
+  }
+  position: absolute;
+  font-size: 36px;
+  left: 50px;
+  top: 125px;
+  z-index: 999;
+}
+@media only screen and (max-width: 400px) {
+  .mun__toolbuttonfloating {
+    left: 20px;
+    top: 100px;
+  }
 }

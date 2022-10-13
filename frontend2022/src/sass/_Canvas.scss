@@ -2,6 +2,21 @@
   width: 100%;
 }
 
+.mun__textupfloating {
+  position: absolute;
+  top: 125px;
+  right: 25px;
+  width: 250px;
+  height: 70px;
+  color: #5685ad;
+}
+
+@media only screen and (max-width: 400px) {
+  .mun__textupfloating {
+    display: none;
+  }
+}
+
 .mun__bigcanvas {
   overflow-y: auto;
 

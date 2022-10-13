@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Header from "./Header";
 
 export const BasicLayout = (props: { children: any; className: any }) => {
   const { children, className } = props;

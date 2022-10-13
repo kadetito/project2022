@@ -23,3 +23,13 @@
 .mun__dropdownbutton:visited {
   background-color: transparent;
 }
+
+.mun_display_name {
+  display: block;
+}
+
+@media only screen and (max-width: 400px) {
+  .mun_display_name {
+    display: none;
+  }
+}

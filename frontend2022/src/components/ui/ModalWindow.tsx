@@ -1,41 +1,75 @@
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
+import { BsFillXSquareFill } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
-import { useUiStore } from "../../hooks";
-import { useContentStore } from "../../hooks/useContentStore";
+import { Button } from "react-bootstrap";
 
-export const ModalWindow = () => {
-  const { isDateModalOpen, closeDateModal } = useUiStore();
-  const { activeEvent } = useContentStore();
-  const [activeEventValue, setActiveEventValue] = useState<any>([]);
-  const onCloseModal = () => {
-    closeDateModal();
-  };
-
+export const ModalWindow = ({ ...props }) => {
+  const { dataModal, show, onClose } = props;
+  const [data, setData] = useState<any>([]);
   useEffect(() => {
-    if (activeEvent !== null) {
-      setActiveEventValue(activeEvent);
+    if (dataModal !== null) {
+      setData(dataModal);
     }
-    console.log(activeEventValue);
-  }, [activeEvent]);
+  }, [dataModal]);
 
   return (
     <>
-      <Modal show={isDateModalOpen}>
-        <Modal.Header>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
+      <Modal size="lg" show={show} onHide={onClose} centered>
         <Modal.Body>
-          {/* {activeEventValue !== null &&
-            activeEventValue.map((evnt: any, index: any) => (
-              <div key={index}>{evnt._id}</div>
-            ))} */}
-          {activeEventValue.title}
-          {activeEventValue._id}
-          {activeEventValue.notes}
-          <Button onClick={closeDateModal}></Button>
+          <div className="row p-2">
+            <div className="col-2 ps-4">
+              {data?.escut ? (
+                <img
+                  className="mun__imgescut"
+                  src={`./img/${data?.escut}`}
+                  alt={data?.nom}
+                />
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="col-10 ps-4 pe-4 mun__modaltextcontent">
+              <h4>{data?.nom}</h4>
+              <h5>{data?.nomcompletens}</h5>
+              <p className="d-flex justify-content-between">
+                <span>
+                  {data?.adresa} ({data?.codipostal})
+                </span>
+                <span>
+                  <b>CIF:</b> {data?.cif}
+                </span>
+              </p>
+
+              <p>
+                <b>Tel:</b> {data?.telefon} - <b>Fax:</b> {data?.fax} -{" "}
+                <b>E-mail:</b> {data?.email}
+              </p>
+
+              {data?.fotoplano ? (
+                <img
+                  className="mun__imgfotos"
+                  src={`./img/${data?.fotoplano}`}
+                  alt={data?.nom}
+                />
+              ) : (
+                ""
+              )}
+              <Button variant="outline-secondary">
+                Ver la página del municipio
+              </Button>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-12">
+              <div className="d-flex justify-content-end">
+                <button className="mun__modalclosebutton" onClick={onClose}>
+                  <BsFillXSquareFill />
+                </button>
+              </div>
+            </div>
+          </div>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );

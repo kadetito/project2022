@@ -1,0 +1,23 @@
+.modal-content {
+  border-radius: 0px;
+}
+
+.modal-header .btn-close {
+  box-sizing: unset;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.mun__modaltextcontent {
+  & h4 {
+    font-size: 24px;
+  }
+  & h5 {
+    font-size: 17px;
+  }
+  & p {
+    font-size: 15px;
+  }
+}

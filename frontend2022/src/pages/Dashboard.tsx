@@ -1,20 +1,14 @@
-import React, { forwardRef, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { useEffect } from "react";
+
 import { ContentLayout } from "../layout/ContentLayout";
-import { useUiStore, useContentStore } from "../hooks";
-import { ModalWindow } from "../components/ui/ModalWindow";
+import { useContentStore } from "../hooks";
+
 import Loader from "../components/ui/Loader";
 import Canvas from "../components/datacomponent/Canvas";
+import SearchFilter from "../components/datacomponent/SearchFilter";
 
 export const Dashboard = () => {
-  const { openDateModal } = useUiStore();
-  const { events, setActiveEvent, startLoadingEvents, loader } =
-    useContentStore();
-
-  const onDoubleClick = (ev: any) => {
-    openDateModal();
-    setActiveEvent(ev);
-  };
+  const { events, startLoadingEvents, loader } = useContentStore();
 
   useEffect(() => {
     startLoadingEvents();
@@ -23,8 +17,9 @@ export const Dashboard = () => {
   return (
     <>
       {loader ? <Loader /> : null}
-      <ModalWindow />
+
       <ContentLayout className="mun__dashboard">
+        <SearchFilter />
         <Canvas events={events} />
       </ContentLayout>
     </>
